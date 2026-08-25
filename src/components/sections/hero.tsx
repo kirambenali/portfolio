@@ -118,7 +118,16 @@ export function HeroSection() {
           </div>
 
           {/* ── Portrait ── */}
-          <div className="absolute lg:relative bottom-0 right-0 w-[95%] sm:w-[70%] lg:w-[53%] h-[88%] lg:h-full flex items-end justify-end pointer-events-none z-10 opacity-65 lg:opacity-100 mix-blend-lighten lg:mix-blend-normal">
+          <motion.div
+            className="absolute lg:relative bottom-0 right-0 w-[95%] sm:w-[70%] lg:w-[53%] h-[88%] lg:h-full flex items-end justify-end pointer-events-none z-10 opacity-65 lg:opacity-100 mix-blend-lighten lg:mix-blend-normal"
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30, scale: shouldReduceMotion ? 1 : 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{
+              duration: shouldReduceMotion ? 0 : 0.9,
+              ease: [0.16, 1, 0.3, 1],
+              delay: 0,
+            }}
+          >
             <img
               src={heroPortrait}
               alt="Kiram Ben Ali"
@@ -127,7 +136,7 @@ export function HeroSection() {
               decoding="async"
               className="w-auto h-full object-contain object-bottom origin-bottom"
             />
-          </div>
+          </motion.div>
 
         </div>
       </div>
