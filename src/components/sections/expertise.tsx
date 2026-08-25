@@ -109,17 +109,17 @@ export function ExpertiseSection() {
             </div>
 
             {/* RIGHT: Content Card (Centered vertically on mobile and desktop) */}
-            <div className="w-full max-w-[500px] md:max-w-none md:w-[600px] shrink-0 relative min-h-[380px] md:h-[480px] my-auto flex items-center">
-              <AnimatePresence mode="wait">
+            <div className="w-full max-w-[500px] md:max-w-none md:w-[600px] shrink-0 relative h-[420px] md:h-[480px] my-auto flex items-center">
+              <AnimatePresence mode="popLayout">
                 <motion.div
                   key={activeIndex}
-                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -30 }}
+                  initial={{ opacity: 0, x: shouldReduceMotion ? 0 : 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: shouldReduceMotion ? 0 : -40 }}
                   transition={transitionSpec}
-                  className="w-full"
+                  className="absolute inset-0 w-full h-full flex flex-col"
                 >
-                  <div className="bg-background/50 backdrop-blur-xl p-9 sm:p-10 md:p-10 rounded-3xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex flex-col h-auto md:h-full">
+                  <div className="bg-background/50 backdrop-blur-xl p-9 sm:p-10 md:p-10 rounded-3xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex flex-col h-full">
 
                     <div className="mb-4 md:mb-8">
                       <h3 className="font-sans font-light text-2xl sm:text-3xl md:text-4xl leading-tight text-white mb-2 md:mb-4">
@@ -130,7 +130,7 @@ export function ExpertiseSection() {
                       </p>
                     </div>
 
-                    <div className="mt-2 md:mt-auto">
+                    <div className="mt-auto">
                       <div className="text-[11px] md:text-xs font-sans tracking-widest text-white/30 mb-2 md:mb-4 uppercase border-b border-white/10 pb-2 md:pb-4">
                         Technologies
                       </div>

@@ -1,17 +1,32 @@
-import { useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useSection } from "@/lib/section-context";
 
-export function useSectionInView(index: number, amount: "some" | "all" | number = 0.5) {
+export function useSectionInView(index: number, _amount: "some" | "all" | number = 0.5) {
   const ref = useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { amount });
   const { setActiveIndex } = useSection();
 
   useEffect(() => {
-    if (isInView) {
-      setActiveIndex(index);
-    }
-  }, [isInView, index, setActiveIndex]);
+    const handleScroll = () => {
+      const el = ref.current;
+      if (!el) return;
+
+      const rect = el.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      const middleThreshold = viewportHeight * 0.45;
+
+      // Section is active if its top has passed into the middle and its bottom is still below the middle
+      if (rect.top <= middleThreshold && rect.bottom > middleThreshold) {
+        setActiveIndex(index);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [index, setActiveIndex]);
 
   return ref;
 }
