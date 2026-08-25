@@ -78,14 +78,14 @@ export function ExpertiseSection() {
   });
 
   const transitionSpec = { 
-    duration: shouldReduceMotion ? 0 : 0.9, 
+    duration: shouldReduceMotion ? 0 : 0.65, 
     ease: [0.22, 1, 0.36, 1] as const 
   };
 
   return (
     <section id="expertise" ref={ref as any} className="relative bg-background">
       {/* Height scales with card count to keep each step readable during scroll */}
-      <div ref={containerRef} style={{ height: `${EXPERTISE.length * 125}vh` }} className="relative">
+      <div ref={containerRef} style={{ height: `${EXPERTISE.length * 85}vh` }} className="relative">
         <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
           
           <div className="w-full max-w-[90rem] mx-auto px-6 md:px-12 lg:px-24 flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-24 relative z-10 h-full">

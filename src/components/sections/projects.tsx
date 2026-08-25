@@ -306,7 +306,7 @@ export function ProjectsSection() {
   });
 
   const transitionSpec = {
-    duration: shouldReduceMotion ? 0 : 0.9,
+    duration: shouldReduceMotion ? 0 : 0.65,
     ease: [0.22, 1, 0.36, 1] as const,
   };
 
@@ -324,7 +324,7 @@ export function ProjectsSection() {
       {/* ── DESKTOP: Pinned Scroll ── */}
       <div
         ref={containerRef}
-        style={{ height: `${TOTAL_SLOTS * 125}vh` }}
+        style={{ height: `${TOTAL_SLOTS * 90}vh` }}
         className="hidden lg:block relative"
       >
         <div className="sticky top-0 h-screen w-full flex items-start justify-center overflow-hidden pt-14 pb-10">
@@ -351,35 +351,27 @@ export function ProjectsSection() {
 
             {/* LEFT: Video */}
             <div className="flex-1 w-full relative">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={projIdx}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: shouldReduceMotion ? 0 : 0.5 }}
-                  className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] bg-background/40 backdrop-blur-md flex items-center justify-center"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent z-0" />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-primary/20 blur-[60px] rounded-full transition-all duration-700" />
-                  {!activeVideoEmbed && (
-                    <div className="relative z-10 w-20 h-20 rounded-full border border-white/20 bg-white/5 backdrop-blur-xl flex items-center justify-center text-white/50 pointer-events-none select-none">
-                      <Play aria-hidden="true" className="w-8 h-8 ml-1" />
-                    </div>
-                  )}
-                  {activeVideoEmbed && (
-                    <iframe
-                      key={`${activeProj.title}-${page}`}
-                      src={activeVideoEmbed}
-                      title={`${activeProj.title} demo video`}
-                      className="absolute inset-0 w-full h-full z-20"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
-                    />
-                  )}
-                </motion.div>
-              </AnimatePresence>
+              <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] bg-background/40 backdrop-blur-md flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent z-0 pointer-events-none" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-primary/20 blur-[60px] rounded-full transition-all duration-700 pointer-events-none" />
+                
+                {!activeVideoEmbed && (
+                  <div className="relative z-10 w-20 h-20 rounded-full border border-white/20 bg-white/5 backdrop-blur-xl flex items-center justify-center text-white/50 pointer-events-none select-none">
+                    <Play aria-hidden="true" className="w-8 h-8 ml-1" />
+                  </div>
+                )}
+                {activeVideoEmbed && (
+                  <iframe
+                    key={activeVideoEmbed}
+                    src={activeVideoEmbed}
+                    title={`${activeProj.title} demo video`}
+                    className="absolute inset-0 w-full h-full z-20"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                )}
+              </div>
             </div>
 
             {/* RIGHT: Content */}
