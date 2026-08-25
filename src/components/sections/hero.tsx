@@ -118,7 +118,7 @@ export function HeroSection() {
           </div>
 
           {/* ── Portrait ── */}
-          <div className="absolute lg:relative bottom-0 right-0 w-[90%] sm:w-[70%] lg:w-[53%] h-[80%] lg:h-full flex items-end justify-end pointer-events-none z-10 opacity-40 lg:opacity-100 mix-blend-lighten lg:mix-blend-normal">
+          <div className="absolute lg:relative bottom-0 right-0 w-[95%] sm:w-[70%] lg:w-[53%] h-[88%] lg:h-full flex items-end justify-end pointer-events-none z-10 opacity-65 lg:opacity-100 mix-blend-lighten lg:mix-blend-normal">
             <img
               src={heroPortrait}
               alt="Kiram Ben Ali"
