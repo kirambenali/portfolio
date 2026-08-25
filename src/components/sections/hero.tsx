@@ -118,13 +118,13 @@ export function HeroSection() {
           </div>
 
           {/* ── Portrait ── */}
-          <div className="absolute lg:relative bottom-0 right-0 w-[90%] sm:w-[70%] lg:w-[52%] h-[70%] lg:h-full flex items-end justify-end pointer-events-none z-10 opacity-40 lg:opacity-100 mix-blend-lighten lg:mix-blend-normal">
-            <motion.img
-              initial={{ opacity: 0, scale: shouldReduceMotion ? 1.15 : 1.2 }}
-              animate={{ opacity: 1, scale: 1.02 }}
-              transition={{ ...transitionSpec, delay: 0.2, duration: 1.2 }}
+          <div className="absolute lg:relative bottom-0 right-0 w-[90%] sm:w-[70%] lg:w-[53%] h-[80%] lg:h-full flex items-end justify-end pointer-events-none z-10 opacity-40 lg:opacity-100 mix-blend-lighten lg:mix-blend-normal">
+            <img
               src={heroPortrait}
               alt="Kiram Ben Ali"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               className="w-auto h-full object-contain object-bottom origin-bottom"
             />
           </div>
