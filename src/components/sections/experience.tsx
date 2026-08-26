@@ -12,21 +12,21 @@ const EXPERIENCES = [
     location: "BIZERTE, TUNISIA",
     title: "SOFTWARE ENGINEER INTERN",
     date: "JAN 2026 — JUN 2026",
-    desc: "Designed and delivered a production-ready web and mobile B2B platform, covering everything from UX design and development to testing, CI/CD, and deployment, helping WICMIC Group’s commercial teams manage products, clients, and sales processes with 50+ international partner brands.",
+    desc: "Designed, developed, tested, and deployed a production-ready B2B web and mobile platform for WICMIC Group, used by 50+ international partner brands.",
   },
   {
     company: "Refresh Branding Company",
     location: "TUNIS, TUNISIA",
     title: "SOFTWARE DEVELOPER INTERN",
     date: "JUN 2025 — AUG 2025",
-    desc: "Developed a production-ready B2B mobile platform for daily carpooling, connecting companies and employees through flexible trip planning and intelligent ride matching, while owning the frontend and integrating Firebase backend services."
+    desc: "Led the frontend development of a production-ready B2B carpooling platform, integrating Firebase to deliver intelligent ride matching and flexible trip planning for companies and employees."
   },
   {
     company: "STB Bank",
     location: "TUNISIA",
     title: "HARDWARE & NETWORK MAINTENANCE INTERN",
     date: "JUN 2024 — AUG 2024",
-    desc: "Handled hardware troubleshooting, component replacement, and system performance maintenance, while supporting network administration tasks including configuration, traffic analysis, and diagnostics using packet tracing tools."
+    desc: "Managed hardware and system troubleshooting while handling network configuration, traffic analysis, and diagnostics using packet tracing tools."
   }
 ];
 
@@ -49,12 +49,12 @@ export function ExperienceSection() {
       <Watermark text="EXPERIENCE" className="text-[14vw] md:text-[16vw]" />
 
       <div ref={containerRef} className="max-w-6xl mx-auto border-t border-white/10 pt-16 relative z-10">
-        
-        <SectionHeader 
-          subtitle="My Journey" 
+
+        <SectionHeader
+          subtitle="My Journey"
           title={
-            <span>Where I've <br/><span className="text-primary">Left My Mark</span></span>
-          } 
+            <span>Where I've <br /><span className="text-primary">Left My Mark</span></span>
+          }
         />
 
         {/* Timeline Container */}
@@ -62,7 +62,7 @@ export function ExperienceSection() {
           {/* Track Line */}
           <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[1px] bg-white/10 md:-translate-x-1/2" />
           {/* Glowing Progress Line */}
-          <motion.div 
+          <motion.div
             style={{ height: lineHeight }}
             className="absolute left-6 md:left-1/2 top-0 w-[2px] bg-primary md:-translate-x-1/2 origin-top drop-shadow-[0_0_8px_rgba(255,102,0,0.8)] z-10"
           />
@@ -78,7 +78,7 @@ export function ExperienceSection() {
 
 function ExperienceItem({ exp, index }: { exp: typeof EXPERIENCES[0], index: number }) {
   const itemRef = useRef<HTMLDivElement>(null);
-  
+
   // Track this item's position relative to the viewport
   const { scrollYProgress } = useScroll({
     target: itemRef,
@@ -88,11 +88,11 @@ function ExperienceItem({ exp, index }: { exp: typeof EXPERIENCES[0], index: num
   // Fade in at center, fade out at edges
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.5, 0.7, 1], [0.2, 1, 1, 1, 0.2]);
   const scale = useTransform(scrollYProgress, [0, 0.3, 0.5, 0.7, 1], [0.9, 1, 1, 1, 0.9]);
-  
+
   const isEven = index % 2 === 0;
 
   return (
-    <motion.div 
+    <motion.div
       ref={itemRef}
       style={{ opacity, scale }}
       className={cn(
@@ -112,7 +112,7 @@ function ExperienceItem({ exp, index }: { exp: typeof EXPERIENCES[0], index: num
           <span className="font-sans text-sm tracking-widest text-primary uppercase">{exp.date}</span>
           <span className="font-sans text-sm tracking-widest text-white/40 uppercase">{exp.location}</span>
         </div>
-        
+
         <h3 className="text-2xl md:text-3xl font-sans font-light leading-tight">
           {exp.company}
         </h3>

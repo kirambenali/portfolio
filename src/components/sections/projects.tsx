@@ -26,13 +26,13 @@ const PROJECTS = [
   {
     title: "StepWise",
     // descA shown on scroll-page 0, descB on scroll-page 1
-    descA: "StepWise is a web and mobile platform designed to provide all the necessary care for children with Down syndrome, using advanced technologies such as IoT robotics, AI agents, and automation.",
+    descA: "Stepwise is a web and mobile platform designed to provide all the necessary care for children with Down syndrome through AI agents and automation.",
     descB: "The applications offer fully adapted solutions developed in consultation with Down syndrome associations and their experts.",
     // featuresA shown on page 0 (first 2), featuresB on page 1 (remaining)
     features: [
       { text: " Built a multimodal AI assistant with Azure AI Foundry and GPT-4o Realtime that analyzes video frames to validate children's tasks and enables voice interaction through Azure Speech.", highlight: ["Azure AI Foundry", "GPT-4o Realtime", "Azure Speech"] },
       { text: " Integrated Azure Pronunciation Assessment for speech evaluation and GPT-Image-1 to generate adapted educational content.", highlight: ["Azure Pronunciation Assessment", "GPT-Image-1"] },
-      { text: "Developed AI-driven learning modules for language, academics, sports, cooking, social awareness, and daily routines, with personalized activities and real-time AI validation tailored to each child.", highlight: [] },
+      { text: "Designed and developed AI-driven learning tasks with personalized activities and real-time AI validation, tailored to each child’s needs.", highlight: [] },
       { text: "Validated with 75+ parents and 45+ children, resulting in 20+ product improvements and positive psychomotor specialist feedback", highlight: ["75+", "45+", "20+"] },
       { text: "CareWise extension with automated job recommendations for parents using web scraping and n8n automation", highlight: ["n8n"] },
     ],
@@ -43,7 +43,7 @@ const PROJECTS = [
   },
   {
     title: "MyMicLab",
-    descA: "A production-ready B2B platform developed as my Final Year Engineering Project for WICMIC Group, connecting its commercial teams with international partner brands to streamline product discovery, client management, and digital sales.",
+    descA: "Production-ready B2B platform developed for WICMIC Group to streamline product discovery, client management, and digital sales with international partner brands.",
     descB: "",
     features: [
       {
@@ -88,7 +88,7 @@ const PROJECTS = [
   },
   {
     title: "Workway",
-    descA: "A production-ready B2B carpooling platform developed during my summer internship at Refresh Branding, connecting companies and employees to simplify daily commuting through shared rides and real-time mobility features.",
+    descA: "Production-ready B2B carpooling platform developed at Refresh Branding, connecting companies and employees through shared rides and real-time mobility features.",
     descB: "",
     features: [
       {
@@ -354,7 +354,7 @@ export function ProjectsSection() {
               <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] bg-background/40 backdrop-blur-md flex items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent z-0 pointer-events-none" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-primary/20 blur-[60px] rounded-full transition-all duration-700 pointer-events-none" />
-                
+
                 {!activeVideoEmbed && (
                   <div className="relative z-10 w-20 h-20 rounded-full border border-white/20 bg-white/5 backdrop-blur-xl flex items-center justify-center text-white/50 pointer-events-none select-none">
                     <Play aria-hidden="true" className="w-8 h-8 ml-1" />
